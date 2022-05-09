@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+/*
+1 maneira
+.component div p span {
+}
+
+ou
+
+.componente {
+  div{
+    p{
+      span{
+
+      }
+    }
+  }
+}
+
+
+*/
