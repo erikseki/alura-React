@@ -1,12 +1,12 @@
 import React from 'react';
 import Botao from '../Botao';
-import './style.scss'
+import style from './Formulario.module.scss'
 
 class Formulario extends React.Component {
     render(){
-        return (
-            <form className='novaTarefa'>
-                <div className='inputContainer'>
+        return ( //  <div className={style["novaTarefa__-container"]}> outra maneira de adicionar o objeto com "-"
+            <form className={style.novaTarefa}> 
+                <div className={style.inputContainer}> 
                     <label htmlFor="tarefa">
                         adicione um novo estudo
                     </label>
@@ -18,7 +18,7 @@ class Formulario extends React.Component {
                         required
                     />
                 </div>
-                <div className='inputContainer'>
+                <div className={style.inputContainer}>
                     <label htmlFor="tempo">
                         Tempo 
                     </label>
