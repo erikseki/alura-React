@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Item from "./item";
 import style from './Lista.module.scss';
 
 function Lista(){
-    const tarefas = [{
+    const [tarefas, setTarefas] = useState([{
         tarefa:'React',
         tempo:'02:00:00'
     }, {
@@ -12,16 +12,18 @@ function Lista(){
     }, {
         tarefa:'Typescript',
         tempo:'03:00:00'
-    }]
+    }])
     return(
         <aside className={style.listaTarefas}>
-            <h2>Estudos do dia</h2>
+            <h2 onClick={() => {
+                setTarefas([...tarefas, {tarefa: "estudar estado", tempo: "5:00:00"}]); 
+            }}>Estudos do dia</h2>
             <ul>
                 {tarefas.map((item, index) => (
                    <Item
-                   key={index}
-                   tarefa={item.tarefa}
-                   tempo={item.tempo}
+                   key={index} 
+                   {...item} // spread operator (destruturação do objeto com o "...") tomar cuidado com API caso tenha mt informação, ele pode puxar errado
+                   // outra maneira de usar " tempo={item.tempo} "
                    />
                 ))}
                 
