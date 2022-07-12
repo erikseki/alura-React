@@ -4,17 +4,22 @@ import Item from "./item";
 import style from './Lista.module.scss';
 
 
+interface Props {
+    tarefas: ITarefa[],
+    selecionaTarefa: (tarefaSelecionada : ITarefa) => void
+}
 
 
-function Lista({tarefas}: { tarefas: ITarefa[]}) {
+function Lista({tarefas, selecionaTarefa}: Props ) {
     
     return(
         <aside className={style.listaTarefas}>
             <h2>Estudos do dia</h2>
             <ul>
-                {tarefas.map((item, index) => (
+                {tarefas.map(item => (
                    <Item
-                   key={index} 
+                   selecionaTarefa={selecionaTarefa}
+                   key={item.id} 
                    {...item} // spread operator (destruturação do objeto com o "...") tomar cuidado com API caso tenha mt informação, ele pode puxar errado
                    // outra maneira de usar " tempo={item.tempo} "
                    />
@@ -32,7 +37,7 @@ export default Lista
  modelo do stateless component com a arrow function
  
  const Lista = () => (
-
+ 
   <li>
       item...
   </li>   
